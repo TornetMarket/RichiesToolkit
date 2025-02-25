@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Richie's Toolkit</title>
+  <!-- Import Google Font for a modern, code-like feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Password Modal -->
+  <div id="password-modal" class="modal">
+    <div class="modal-content">
+      <div class="crown">👑</div>
+      <h2>Richie's Toolkit</h2>
+      <input type="password" id="password-input" placeholder="Enter access key" />
+      <button id="password-submit">Submit</button>
+      <p id="error-message" class="error"></p>
+      <footer class="login-footer">
+        <p>Powered By Tornet Market ™</p>
+        <p>Developed By Richie</p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Main Content (Hidden until correct password entered) -->
+  <div id="main-content" class="hidden">
+    <nav class="navbar">
+      <ul>
+        <li id="nav-home" class="active">Home</li>
+        <li id="nav-scripts">Scripts</li>
+        <li id="nav-files">Files</li>
+      </ul>
+    </nav>
+
+    <section id="home-page">
+      <div class="crown-home">👑</div>
+      <h1>Richie's Toolkit</h1>
+      <!-- Content Panels will be swapped here -->
+      <div id="content-panels">
+        <div class="container" id="description-panel">
+          <p>
+            Welcome to Richie's Toolkit, designed for cyber security experts who know what they're doing and need access to powerful, underground tools that aren't available on the mainstream market.
+          </p>
+          <p>
+            Tornet is not responsible for the use of this toolkit. Any actions taken using these tools are your own responsibility; Tornet is not liable for any misuse.
+          </p>
+        </div>
+        <div class="container" id="terms-panel">
+          <h2>Terms and Conditions</h2>
+          <p>
+             By using this site, you acknowledge that you are accessing advanced tools and features. Unauthorized usage or misuse of these tools may have legal consequences. Use at your own risk.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional content for "Files" can be added here -->
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
