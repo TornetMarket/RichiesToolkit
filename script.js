@@ -139,20 +139,32 @@ document.addEventListener("DOMContentLoaded", function() {
         const ipAddress = data.ip;
         alert(`Your IP Address is: ${ipAddress}`);
   
-        // Copy the IP address to the clipboard
-        navigator.clipboard.writeText(ipAddress)
-          .then(() => {
-            console.log('IP address copied to clipboard');
-          })
-          .catch(error => {
-            console.error('Failed to copy IP address to clipboard:', error);
-          });
+        // Copy the IP address to the clipboard immediately for mobile users
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(ipAddress)
+            .then(() => {
+              console.log('IP address copied to clipboard');
+            })
+            .catch(error => {
+              console.error('Failed to copy IP address to clipboard:', error);
+            });
+        } else {
+          // Fallback for older browsers or if clipboard API is unsupported
+          var textarea = document.createElement('textarea');
+          textarea.value = ipAddress;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          console.log('IP address copied to clipboard');
+        }
       })
       .catch(error => {
         alert('Failed to retrieve IP address.');
         console.error('Error fetching IP:', error);
       });
   }
+  
   
 
   function pingIP() {
