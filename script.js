@@ -136,13 +136,24 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('https://api64.ipify.org?format=json')
       .then(response => response.json())
       .then(data => {
-        alert(`Your IP Address is: ${data.ip}`);
+        const ipAddress = data.ip;
+        alert(`Your IP Address is: ${ipAddress}`);
+  
+        // Copy the IP address to the clipboard
+        navigator.clipboard.writeText(ipAddress)
+          .then(() => {
+            console.log('IP address copied to clipboard');
+          })
+          .catch(error => {
+            console.error('Failed to copy IP address to clipboard:', error);
+          });
       })
       .catch(error => {
         alert('Failed to retrieve IP address.');
         console.error('Error fetching IP:', error);
       });
   }
+  
 
   function pingIP() {
     const ipAddress = prompt("Enter the IP address to ping:");
